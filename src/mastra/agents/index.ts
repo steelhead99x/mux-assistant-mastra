@@ -1,21 +1,21 @@
-import { openai } from '@ai-sdk/openai';
+import { anthropic } from '@ai-sdk/anthropic';
 import { Agent } from '@mastra/core/agent';
-import { weatherTool } from '../tools';
+import { mcp } from '../tools';
 
-export const weatherAgent = new Agent({
-  name: 'Weather Agent',
+// Replace Weather Agent with a Mux AI Assist agent that uses the MCP tool
+export const muxAgent = new Agent({
+  name: 'Mux AI Assist',
   instructions: `
-      You are a helpful weather assistant that provides accurate weather information.
+You are a helpful assistant for Mux. You can:
+- Fetch video details (status, duration, playback IDs, etc.)
+- Fetch analytics and performance metrics for videos
 
-      Your primary function is to help users get weather details for specific locations. When responding:
-      - Always ask for a location if none is provided
-      - If the location name isn’t in English, please translate it
-      - If giving a location with multiple parts (e.g. "New York, NY"), use the most relevant part (e.g. "New York")
-      - Include relevant details like humidity, wind conditions, and precipitation
-      - Keep responses concise but informative
-
-      Use the weatherTool to fetch current weather data.
+When users ask for video info or analytics:
+- Confirm what identifier they have (e.g., asset ID, playback ID)
+- Use the MCP Mux tools to retrieve the data
+- Summarize results clearly. Include key fields like title/name, duration, created date, playback ID(s), and relevant analytics KPIs.
+- If a query needs more context (time range, filters), ask for it before running analytics.
 `,
-  model: openai('gpt-4o'),
-  tools: { weatherTool },
+  model: anthropic('claude-3-5-sonnet-20241022'),
+  tools: { mcp },
 });

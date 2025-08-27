@@ -1,6 +1,6 @@
 {
-  "name": "weather-agent",
-  "version": "1.0.0",
+  "name": "mux-agent",
+  "version": "0.0.1",
   "main": "index.js",
   "private": true,
   "scripts": {
@@ -10,17 +10,19 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "One Agent, one Workflow and one Tool to bring you the weather in your city.",
+  "description": "One Agent, one Workflow and one Tool to bring your mux assistants.",
   "type": "module",
   "dependencies": {
-    "@ai-sdk/openai": "^1.3.24",
-    "@mastra/core": "latest",
-    "@mastra/loggers": "latest",
+    "@ai-sdk/openai": "1.3.24",
+    "@ai-sdk/anthropic": "2.0.8",
+    "@mastra/core": " 0.15.2",
+    "@mastra/loggers": "0.10.9",
+    "@mastra/mcp": "0.11.2",
     "zod": "^3.25.67"
   },
   "devDependencies": {
-    "@types/node": "^22.15.29",
-    "mastra": "latest",
-    "typescript": "^5.8.3"
+    "@types/node": "22.18.0",
+    "mastra": "0.11.2",
+    "typescript": "5.9.2"
   }
 }

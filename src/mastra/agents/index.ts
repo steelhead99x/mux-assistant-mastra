@@ -19,6 +19,6 @@ When users ask for video info or analytics:
 - Summarize results clearly. Include key fields like title/name, duration, created date, playback ID(s), and relevant analytics KPIs.
 - If a query needs more context (time range, filters), ask for it before running analytics.
 `,
-    model: anthropic('claude-3-7-sonnet-20250219'),
+    model: anthropic('claude-opus-4-1-20250805'),
     tools: muxTools, // <-- executable tools, not the MCP client
 });

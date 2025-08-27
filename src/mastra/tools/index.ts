@@ -14,10 +14,12 @@ export const mcp = new MCPClient({
                 command: 'npx',
                 args: ['-y', '@mux/mcp@latest', '--client=claude', '--tools=dynamic'],
                 env: {
-        MUX_TOKEN_ID,
-        MUX_TOKEN_SECRET,
-        ...(MUX_BASE_URL && { MUX_BASE_URL }),
-      }
-    }
+        MUX_TOKEN_ID: MUX_TOKEN_ID,
+        MUX_TOKEN_SECRET: MUX_TOKEN_SECRET,
+                  // Optionally pass base URL if you need to override it
+                  // Only include if set to avoid sending "undefined"
+                  ...(MUX_BASE_URL ? { MUX_BASE_URL } : {})
+                }
+            }
   }
 });

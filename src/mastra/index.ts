@@ -4,7 +4,7 @@ import { muxAgent } from './agents';
 import { muxVideoInsightsWorkflow } from './workflows';
 
 export const mastra = new Mastra({
-  workflows: { muxVideoInsightsWorkflow },
+  workflows: {  },
   agents: { muxAgent },
   logger: new PinoLogger({
     name: 'Mastra',
